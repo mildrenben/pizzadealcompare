@@ -130,10 +130,8 @@ document.getElementById('submit-button').addEventListener('click', function(){
   calc();
 })
 
-document.getElementById('submit-button').onkeyup = function(e){
-    if(e.keyCode == 13){
-       calc();
-    }
-}
+document.addEventListener('keyup', function(e){
+  if(e.keyCode === 13) calc();
+})
 
 
