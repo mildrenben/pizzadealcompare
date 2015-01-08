@@ -48,15 +48,10 @@ main {
   @media screen and (min-width: $desktop-xl){
     width: 60%;
     padding: 50px 22%;
-    border: 1px solid red;
   }
   @media screen and (max-width: $tablet){
     width: calc(100% - 50px);
     padding: 20px 25px;
-    border: 1px solid red;
-  }
-  @media screen and (max-width: $mobile){
-    border: 1px solid yellow;
   }
 }
 
@@ -85,7 +80,7 @@ p, input, h1, h2 {
 h1 {
   font-family: 'Knewave', cursive;
   font-size: 38px;
-  text-shadow: 0px 0px 1px rgba(0,0,0,0.2)
+  text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
   -webkit-animation: anim 0.6s ease-in-out forwards;
   @media screen and (max-width: $mobile){
     font-size: 24px;
@@ -105,8 +100,6 @@ h1, h2 {
 p.clear {
   color: $black;
 }
-
-
 
 input[type="submit"]:hover {
   box-shadow: -4px 4px  $blue;
@@ -188,9 +181,12 @@ input:focus {
 .answers p {
   margin: 6px 0;
   padding: 8px;
-  font-size: 16px;
+  font-size: $base-font;
   -webkit-animation: anim3 0.6s 1.2s ease-in-out forwards;
   //opacity: 0;
+  @media screen and (max-width: $tablet){
+    font-size: $small-font;
+  }
   @media screen and (max-width: $mobile){
     margin: 0;
     padding: 4px 0;
@@ -215,11 +211,14 @@ input:focus {
   padding: 0;
   position: absolute;
   z-index: -1;
+  margin-left: 22%;
   @media screen and (min-width: $desktop-xl){
     margin-left: 18.9%;
-  } 
+  }
+  @media screen and (max-width: $tablet){
+    margin-left: 18.9%;
+  }
 }
-
 
 p.highlight2:nth-child(5), p.highlight2:nth-child(5) {
   margin-top: 54px;
