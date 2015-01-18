@@ -22,8 +22,9 @@ $base-font: 16px;
 $h1-font: $base-font*1.5;
 $h2-font: $base-font*1.25;
 $small-font: $base-font*0.8;
+$tiny-font: $base-font*0.7;
 
-$mobile: 420px;
+$mobile: 500px;
 $tablet: 720px;
 $desktop-xl: 1280px;
 
@@ -58,8 +59,8 @@ main {
 div {
   width: 50%;
   margin-top: 50px;
-  @media screen and (max-width: $tablet){
-
+  @media screen and (max-width: $tablet) and (min-width: $mobile){
+    width: 30%;
   }
   @media screen and (max-width: $mobile){
     width: auto;
@@ -70,6 +71,12 @@ div {
 
 .wrap1 {
   clear: both;
+}
+
+.wrap2 {
+  @media screen and (max-width: $tablet) and (min-width: $mobile){
+    margin-left: 20%;
+  }
 }
 
 p, input, h1, h2 {
@@ -89,7 +96,7 @@ h1 {
 
 h2 {
   font-size: $h2-font;
-  //opacity: 0;
+  opacity: 0;
   -webkit-animation: anim 0.6s 0.3s ease-in-out forwards;
 }
 
@@ -118,13 +125,13 @@ input {
   box-shadow: -2px 2px $yellow;
   margin: 10px 0 0;
   -webkit-animation: anim2 0.6s 0.6s ease-in-out forwards;
-  //opacity: 0;
+  opacity: 0;
   @media screen and (min-width: $desktop-xl){
     height: 30px;
     font-size: $base-font;
   }
   @media screen and (max-width: $tablet){
-    width: 80%;
+    width: 100%;
   }
 }
 
@@ -144,6 +151,9 @@ input[type="submit"] {
   }
   @media screen and (max-width: $tablet){
     width: 50%;
+  }
+  @media screen and (max-width: $mobile){
+    margin-top: 20px;
   }
 }
 
@@ -171,10 +181,10 @@ input:focus {
 .answers {
   width: 63%;
   @media screen and (max-width: $tablet){
-    width: 85%;
+    width: 93%;
   }
   @media screen and (max-width: $mobile){
-    width: 90%;
+    width: 80%;
   }
 }
 
@@ -183,13 +193,12 @@ input:focus {
   padding: 8px;
   font-size: $base-font;
   -webkit-animation: anim3 0.6s 1.2s ease-in-out forwards;
-  //opacity: 0;
+  opacity: 0;
   @media screen and (max-width: $tablet){
     font-size: $small-font;
   }
   @media screen and (max-width: $mobile){
-    margin: 0;
-    padding: 4px 0;
+    margin: 0 0 4px;
   }
 }
 
@@ -208,6 +217,7 @@ input:focus {
   color: white;
   background: $pink;
   box-shadow: -2px 2px $pink;
+  font-size: $small-font;
   padding: 0;
   position: absolute;
   z-index: -1;
@@ -216,15 +226,25 @@ input:focus {
     margin-left: 18.9%;
   }
   @media screen and (max-width: $tablet){
-    margin-left: 18.9%;
+    margin-left: 25.3%;
+    font-size: $tiny-font;
+  }
+  @media screen and (max-width: $tablet){
+    margin-left: 62.3%;
   }
 }
 
 p.highlight2:nth-child(5), p.highlight2:nth-child(5) {
   margin-top: 54px;
+  @media screen and (max-width: $tablet){
+    margin-top: 50px;
+  }
+  @media screen and (max-width: $mobile){
+    margin-top: 36px;
+  }
 }
 
-/*@-webkit-keyframes anim {
+@-webkit-keyframes anim {
   0% {
     opacity: 0;
     transform: scale(1.1) translateY(-10px);
@@ -255,4 +275,4 @@ p.highlight2:nth-child(5), p.highlight2:nth-child(5) {
     opacity: 1;
     transform: translateX(0);  
   }
-}*/
+}

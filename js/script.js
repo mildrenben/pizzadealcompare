@@ -77,7 +77,7 @@ function calc(){
   var p1AreaDiffNode = document.getElementsByClassName('one')[0];
   var p2AreaDiffNode = document.getElementsByClassName('three')[0];
   var p1CostDiffNode = document.getElementsByClassName('two')[0];
-  var p2CostDiffNode = document.getElementsByClassName('four')[0];
+  var p2CostDiffNode = document.getElementsByClassName('four')[0];    
 
   function calcAreaDiff(x,y) {
     p1AreaDiffNode.style.padding = '0px';
@@ -87,17 +87,41 @@ function calc(){
     if(x>y){
      var diff = (((x/y)-1)*100);
       p1AreaDiffNode.innerHTML = diff.toFixed(1)  + '% more';
-      p1AreaDiffNode.style.padding = '8px';
+      p1AreaDiffNode.style.padding = '10px';
     }
     if(y>x){
      var diff = (((y/x)-1)*100);
       p2AreaDiffNode.innerHTML = diff.toFixed(1) + '% more';
-      p2AreaDiffNode.style.padding = '8px';
+      p2AreaDiffNode.style.padding = '10px';
     }
     else if(x==y){
       p1AreaDiffNode.innerHTML = '';
       p2AreaDiffNode.innerHTML = '';
     }
+     // media query event handler
+      if (matchMedia) {
+        var mq = window.matchMedia("(min-width: 720px)");
+        mq.addListener(WidthChange);
+        WidthChange(mq);
+      }
+      function WidthChange(mq) {
+        if (mq.matches) {
+          if(x>y){
+            p1AreaDiffNode.style.padding =  '10px';
+          }
+          if(y>x){
+            p2AreaDiffNode.style.padding =  '10px';
+          }
+        }
+        else {
+          if(x>y){
+            p1AreaDiffNode.style.padding =  '9px';
+          }
+          if(y>x){
+            p2AreaDiffNode.style.padding =  '9px';
+          }
+        }
+      }   
   }
   
   function calcCostDiff(a,b) {
@@ -107,18 +131,42 @@ function calc(){
     p2CostDiffNode.innerHTML = '';
     if(a>b){
      var diff = ((((b/a)-1)*100)*-1);
-      p2CostDiffNode.innerHTML = diff.toFixed(1)  + '% less';
-      p2CostDiffNode.style.padding = '8px';
+     p2CostDiffNode.innerHTML = diff.toFixed(1)  + '% less';
+     p2CostDiffNode.style.padding =  '10px';
     }
     if(b>a){
      var diff = ((((a/b)-1)*100)*-1);
       p1CostDiffNode.innerHTML = diff.toFixed(1)  + '% less';
-      p1CostDiffNode.style.padding = '8px';
+      p1CostDiffNode.style.padding =  '10px';
     }
     else if(a==b){
       p1CostDiffNode.innerHTML = '';
       p2CostDiffNode.innerHTML = '';
     }
+    // media query event handler
+      if (matchMedia) {
+        var mq = window.matchMedia("(min-width: 720px)");
+        mq.addListener(WidthChange);
+        WidthChange(mq);
+      }
+      function WidthChange(mq) {
+        if (mq.matches) {
+          if(b>a){
+            p1CostDiffNode.style.padding =  '10px';
+          }
+          if(a>b){
+            p2CostDiffNode.style.padding =  '10px';
+          }
+        }
+        else {
+          if(b>a){
+            p1CostDiffNode.style.padding =  '9px';
+          }
+          if(a>b){
+            p2CostDiffNode.style.padding =  '9px';
+          }
+        }
+      }   
   }
   
   calcAreaDiff(p1Area,p2Area);
@@ -133,5 +181,3 @@ document.getElementById('submit-button').addEventListener('click', function(){
 document.addEventListener('keyup', function(e){
   if(e.keyCode === 13) calc();
 })
-
-
